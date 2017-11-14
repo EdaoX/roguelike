@@ -1,5 +1,4 @@
 # Simple Roguelike test
-_______________________
 
 __Requisites__:
 
