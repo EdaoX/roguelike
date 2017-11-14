@@ -1,14 +1,16 @@
 var ROT = require('rot-js');
 var Config = require('./config.js');
+var Message = require('./lib/message');
+var Menu = require('./lib/menu');
+var Character = require('./lib/character');
 
-var DISPLAY_WIDTH  = 80;
-var DISPLAY_HEIGHT = 40;
-
-var display = new ROT.Display({ width : DISPLAY_WIDTH, height : DISPLAY_HEIGHT });
+var display = new ROT.Display({ width : Config.DISPLAY_WIDTH, height : Config.DISPLAY_HEIGHT });
 
 document.body.appendChild(display.getContainer());
 
-var m = new Message("Ciao ASD!");
+var enemy = new Character();
+
+var m = new Message("Ciao, " + enemy.name);
 
 display.drawText(2, 2, m.toString());
 
