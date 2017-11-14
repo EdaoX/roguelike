@@ -1,5 +1,5 @@
-const ROT = require('rot-js');
-const Message = require('./lib/message');
+var ROT = require('rot-js');
+var Config = require('./config.js');
 
 var DISPLAY_WIDTH  = 80;
 var DISPLAY_HEIGHT = 40;
