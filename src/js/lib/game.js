@@ -1,17 +1,18 @@
 var ROT   = require('rot-js');
 var World = require('./world');
-var MainMenuScene = require('./scene');
+var MainMenuScene = require('./scenes/mainMenuScene');
 
 var defaultOptions = {
     width  : 40,
-    height : 40
+    height : 40,
+    fontSize : 15
 }
 
 function Game(options)
 {
     var opts = Object.assign({}, defaultOptions, options);
-    this.display = new ROT.Display({ width : opts.width, height : opts.height });
-    this.world = new World();
+    this.display = new ROT.Display(opts);
+    this.world = null;
     this.sceneStack = [];
 }
 

@@ -5,4 +5,14 @@ function World()
     // Map
 }
 
+World.prototype.serialize = function()
+{
+    // TODO
+}
+
+World.deserialize = function( data )
+{
+    // TODO return world
+}
+
 module.exports = World;

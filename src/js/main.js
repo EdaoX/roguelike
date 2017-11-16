@@ -5,7 +5,7 @@ var Message = require('./lib/message');
 var Menu = require('./lib/menu');
 var Character = require('./lib/character');
 
-var game = new Game({ width : Config.DISPLAY_WIDTH, height : Config.DISPLAY_HEIGHT });
+var game = new Game(Config.display);
 
 document.body.appendChild(game.getContainer());
 

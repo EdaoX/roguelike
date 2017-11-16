@@ -1,11 +1,12 @@
 var ROT = require('rot-js');
-var Menu = require('./menu');
+var Menu = require('../menu');
+var PlayScene = require('./playScene');
 
-function makeMenu(game)
+function makeMenu( game )
 {
     var menu = new Menu();
-    menu.add('Start', function(){
-        console.log('Start!');
+    menu.add('New Game', function(){
+        game.pushScene( new PlayScene( game ) );
     });
 
     menu.add('Load', function(){
@@ -19,24 +20,23 @@ function makeMenu(game)
     return menu;
 }
 
-function MainMenuScene(game)
+function MainMenuScene( game )
 {
     this.game = game;
-    this.menu = makeMenu(game);
+    this.menu = makeMenu( game );
     this.pointerLoc = { x : 2, y : 2 };
 }
 
 MainMenuScene.prototype.onEnter = function()
 {
-    this.drawScreen();
+    this.drawScene();
 }
 
 MainMenuScene.prototype.onExit = function()
 {
-
 }
 
-MainMenuScene.prototype.drawScreen = function()
+MainMenuScene.prototype.drawScene = function()
 {
     this.game.display.clear();
     for(var i = 0; i < this.menu.choices.length; i = i + 1)
@@ -56,16 +56,16 @@ MainMenuScene.prototype.handleEvent = function( event )
     {
         case ROT.VK_DOWN :
             this.menu.next();
+            this.drawScene();
             break;
         case ROT.VK_UP :
             this.menu.previous();
+            this.drawScene();
             break;
         case ROT.VK_RETURN :
             this.menu.trigger();
             break;
     }
-
-    this.drawScreen();
 }
 
 module.exports = MainMenuScene;

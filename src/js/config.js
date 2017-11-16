@@ -1,4 +1,7 @@
 module.exports = {
-    DISPLAY_WIDTH  : 80,
-    DISPLAY_HEIGHT : 40
+    display : {
+        width  : 80,
+        height : 40,
+        fontSize : 18
+    }
 }
