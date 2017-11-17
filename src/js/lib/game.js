@@ -10,8 +10,8 @@ var defaultOptions = {
 
 function Game(options)
 {
-    var opts = Object.assign({}, defaultOptions, options);
-    this.display = new ROT.Display(opts);
+    this.options = Object.assign({}, defaultOptions, options);
+    this.display = new ROT.Display(this.options);
     this.world = null;
     this.sceneStack = [];
 }
